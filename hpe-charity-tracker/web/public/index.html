@@ -56,7 +56,7 @@
 					</div>
 
 					<footer>
-						<a href="#" class="button">Get Started</a>
+						<a id="log-hours" class="button" onclick="scrollToItem(document.getElementById('three'))">Log your hours</a>
 					</footer>
 				</div>
 			</section>
@@ -64,38 +64,23 @@
 
 		<!-- Three -->
 			<section id="three" class="wrapper align-center">
-				<div class="inner align-center">
+				<div class="center-screen">
 					<form id="user-form" action="form_processing.php" method="post" enctype="multipart/form-data">
 							<div class="12u$">
 								<div class="6u 12u$(xsmall)">
 									<input type="text" name="first_name" id="first_name" value="" placeholder="First Name" />
-								</div>
-							</div>
-
-							<div class="12u$">
-								<div class="6u 12u$(xsmall)">
+									<br />
+									<br />
 									<input type="text" name="demo-name" id="last_name" value="" placeholder="Last Name" />
-								</div>
-							</div>
-
-							<div class="12u$">
-								<div class="6u 12u$(xsmall)">
+									<br />
+									<br />
 									<input type="text" name="email" id="email" value="" placeholder="Email" />
-								</div>
-							</div>
-
-							<div class="12u$">
-								<div class="6u 12u$(xsmall)">
+									<br />
+									<br />
 									<p>Volunteering CSV: <input type="file" name="vol_file" id="vol_file" value=""/></p>
+									<p>Donation CSV: <input type="file" name="don_file" id="don_file" value=""/></p>
 								</div>
 							</div>
-
-							<div class="12u$">
-								<div class="6u 12u$(xsmall)">
-										<p>Donation CSV: <input type="file" name="don_file" id="don_file" value=""/></p>
-								</div>
-							</div>
-						</div>
 					</form>
 			
 				</div>
