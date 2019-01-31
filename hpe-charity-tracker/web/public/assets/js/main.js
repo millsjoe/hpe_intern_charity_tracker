@@ -76,3 +76,15 @@ function scrollToItem(item) {
         window.scrollTo(0, item.offsetTop)
     }
 }
+
+function getVolData(myFile){
+	var file = myFile.files[0];  
+	var filename = file.name;
+	document.getElementById("volfile").innerHTML = "    "+filename;
+ }
+
+ function getDonData(myFile){
+	var file = myFile.files[0];  
+	var filename = file.name;
+	document.getElementById("donfile").innerHTML = "    "+filename;
+ }

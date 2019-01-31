@@ -62,23 +62,30 @@
 			</section>
 
 
-		<!-- Three -->
+		<!-- Log Form -->
 			<section id="three" class="wrapper align-center">
 				<div class="center-screen">
+					<header class="align-center">
+							<h2>Volunteering and Donation History</h2>
+							<p>Please upload your volunteer and donation .csv file here</p>
+					</header>
+
 					<form id="user-form" action="form_processing.php" method="post" enctype="multipart/form-data">
 							<div class="12u$">
 								<div class="6u 12u$(xsmall)">
-									<input type="text" name="first_name" id="first_name" value="" placeholder="First Name" />
+									<h4>First Name:</h4>
+									<input type="text" name="first_name" class="form-input" id="first_name" value="" placeholder="First Name" />
+									<br />
+									<h4>Last Name:</h4>									
+									<input type="text" name="demo-name" class="form-input" id="last_name" value="" placeholder="Last Name" />
+									<br />
+									<h4>Email:</h4>									
+									<input type="text" name="email" class="form-input" id="email" value="" placeholder="Email" />
 									<br />
 									<br />
-									<input type="text" name="demo-name" id="last_name" value="" placeholder="Last Name" />
-									<br />
-									<br />
-									<input type="text" name="email" id="email" value="" placeholder="Email" />
-									<br />
-									<br />
-									<p>Volunteering CSV: <input type="file" name="vol_file" id="vol_file" value=""/></p>
-									<p>Donation CSV: <input type="file" name="don_file" id="don_file" value=""/></p>
+									<p><label class="custom-file-upload"><input type="file" name="vol_file" id="vol_file" onchange="getVolData(this);"/><span id="volfile">Volunteering History</span></label></p>
+									<p><label class="custom-file-upload"><input type="file" name="don_file" id="don_file" onchange="getDonData(this);"/><span id="donfile">Donation History</span></label></p>
+									<input type="submit" name="submit">
 								</div>
 							</div>
 					</form>
