@@ -1926,6 +1926,11 @@
 
 /* Form */
 
+	#user-form {
+		margin: 0 auto;
+		align: center;
+	}
+
 	form {
 		margin: 0 0 2em 0;
 	}
