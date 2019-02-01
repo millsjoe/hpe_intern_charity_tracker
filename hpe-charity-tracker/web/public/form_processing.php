@@ -10,7 +10,8 @@
     <body>
         <section id="banner">
 				<div class="inner">
-					<h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
+                    <h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
+                    <br />
                     <h3 class="thanks">Taking part in volunteering is a great thing to do.</h3>
                     <h4 class="thanks" id="smaller">If you are not redirected in 5 seconds, please click the button below.</h3>
                     <footer>
