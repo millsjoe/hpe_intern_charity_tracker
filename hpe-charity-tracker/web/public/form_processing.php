@@ -3,17 +3,20 @@
 		<title>Thank You!</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/local.css" />
+        
 	</head>
     <body>
         <section id="banner">
 				<div class="inner">
 					<h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
-					<h3 class="thanks">Taking part in volunteering is a great thing to do.</h3>
-					<br />
-					<h5 class="thanks">You will now see how many hours we've done.</h3>
-					<h5 class="thanks">If you are not redirected, please click <a href="graph.html">here</a>.</h5>
-				</div>	
+                    <h3 class="thanks">Taking part in volunteering is a great thing to do.</h3>
+                    <h4 class="thanks" id="smaller">If you are not redirected in 5 seconds, please click the button below.</h3>
+                    <footer>
+						<a id="log-hours" class="button" href="graph.html" >See Progress</a>
+					</footer>
+                </div>	
 		</section>
         <?php 
             if(isset($_POST["submit"])) {
@@ -172,16 +175,16 @@
 			// 	}, 5000);
             // });
             
-            function debug_to_console( $data ) {
-            $output = $data;
-            if ( is_array( $output ) )
-                $output = implode( ',', $output);
+        //     function debug_to_console( $data ) {
+        //     $output = $data;
+        //     if ( is_array( $output ) )
+        //         $output = implode( ',', $output);
 
-            echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
+        //     echo "<script>console.log( 'Debug Objects: " . $output . "' );< script>";
 
-            // Used like this:
-            debug_to_console( "Test" );
-        }
+        //     // Used like this:
+        //     debug_to_console( "Test" );
+        // }
 		</script>
     </body>
 </html>

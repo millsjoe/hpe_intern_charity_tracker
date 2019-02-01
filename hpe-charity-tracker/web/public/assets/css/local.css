@@ -1,62 +1,94 @@
 .center-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
 }
 
 html,
 body {
-height: 100%;
-margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 #fs-wrapper {
-    min-height: 100%;
+  min-height: 100%;
 }
 
 #user-form {
-    margin-top: -25px;
+  margin-top: -25px;
 }
 
 .form-input {
-    margin-top: -20px;
+  margin-top: -20px;
 }
 
 input[type="file"] {
-    display: none;
+  display: none;
 }
 
 .custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }
 
 #thanks {
-    margin-top: -50%;
-    z-index: 1;
+  margin-top: -50%;
+  z-index: 1;
 }
 
-.thanks {
-    color: white;
-    z-index: 1;
+.thanks h4,
+h1,
+h3 {
+  z-index: 1;
+  color: #ffffff;
+  display: inline-block;
 }
 
 .spacing {
-    height:250px;
+  height: 250px;
 }
 
 .section {
-    width: 100%;
-    min-height: 50%;
+  width: 100%;
+  min-height: 50%;
+  padding-top: 0;
+}
+
+.inner {
+  padding-top: 0;
+}
+
+.graph-inner {
+  padding-top: 0;
 }
 
 .graph {
-    width: 100%;
-    min-height: 50%;
-    padding: 25px;
+  width: 100%;
+  min-height: 50%;
+  padding: 25px;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+#banner h3 {
+  color: #fff;
+}
+
+#banner h4 {
+  color: #fff;
+}
+
+#hpe-gives {
+  cursor: pointer;
+}
+
+#log-hours {
+  margin-left: -50px;
 }
