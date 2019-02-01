@@ -10,8 +10,7 @@
     <body>
         <section id="banner">
 				<div class="inner">
-                    <h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
-                    <br />
+					<h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
                     <h3 class="thanks">Taking part in volunteering is a great thing to do.</h3>
                     <h4 class="thanks" id="smaller">If you are not redirected in 5 seconds, please click the button below.</h3>
                     <footer>
@@ -40,8 +39,7 @@
                 $emailgiven = $_POST["email"];
                 $sql = "SELECT ID FROM User WHERE email='$emailgiven'";
                 $result = $conn->query($sql);
-                
-                // Fetch ID
+        
                 $id = $result->fetch_assoc();
                 $id = $id["ID"];
 
@@ -51,10 +49,14 @@
                     $sql = "INSERT INTO User (firstname, lastname, email)
                     VALUES ('$firstname' , '$lastname' , '$emailgiven' )";
 
+
                     if ($conn->query($sql) === FALSE) {
                         echo "Error: " . $sql . "<br>" . $conn->error;
                     }
                 } 
+
+                
+                
 
 
                 // TODO: Check if type is csv
@@ -63,6 +65,15 @@
                 $filename = $csvFile['name'];
                 $fileExt = pathinfo($filename, PATHINFO_EXTENSION);
                 // $fileType = $csvFile["type"];
+
+
+                $sql = "SELECT ID FROM User WHERE email='$emailgiven'";
+                $result = $conn->query($sql);
+        
+                $id = $result->fetch_assoc();
+                $id = $id["ID"];
+
+                
                 $d_counter = 0;
                 if($fileExt == "csv"){
                     $x = 0;
@@ -124,10 +135,15 @@
                             $hashed = password_hash('$uniqID', PASSWORD_BCRYPT );
 
                             $duplicate = mysqli_query($conn, "SELECT * from Volunteer where identifier='$uniqID'");
-                            $storedhash = $duplicate->fetch_assoc();
-                            $storedhash = $storedhash["identifier"];
                             
-                            $check = password_verify('$uniqID', '$storedhash'); 
+                            if (mysqli_num_rows($duplicate) == 0){
+                                $check == FALSE;
+                            } else {
+                                
+                                $storedhash = $duplicate->fetch_assoc() or die($conn->error);
+                                $storedhash = $storedhash["identifier"];
+                                $check = password_verify('$uniqID', '$storedhash'); 
+                            }
 
                             if ($check == FALSE ) {
 
