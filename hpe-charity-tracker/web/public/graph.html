@@ -1,54 +1,61 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Volunteering Stats</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Bristol Hours</h1>
-        <canvas id="volunteeringChart"></canvas>
-        <script src="assets/js/Chart.bundle.min.js"></script>
-        <script>
-            var ctx = document.getElementById("volunteeringChart").getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ["Greg", "Joe", "Jordan", "Lewis"],
-                    datasets: [{
-                        label: '# of Votes',
-                        data: [31, 40, 28, 40],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-              
-                        ],
-                        borderWidth: 20
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
-                    }
-                }
-            });
-            </script>
-    </body>
+  <head>
+    <title>HPE Charity Progess</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+
+  <body>
+    <header id="header">
+      <div class="inner">
+        <a href="index.html" class="logo">
+          <strong>HPE</strong> Charity Tracker
+        </a>
+        <nav id="nav">
+          <!-- <a href="index.html">Login</a> -->
+        </nav>
+        <a href="#navPanel" class="navPanelToggle">
+          <span class="fa fa-bars"></span>
+        </a>
+      </div>
+    </header>
+
+    <section id="banner">
+      <div class="section">
+        <header>
+          <h3 class="thanks">Bristol site intern volunteering hours</h3>
+          <div class="graph" id="interns">
+            INSERT GRAPH 1 - All interns (Bar chart)
+          </div>
+        </header>
+      </div>
+
+      <div class="spacing"></div>
+
+      <div class="section">
+        <header>
+          <h3 class="thanks">The overall hours to site target</h3>
+          <div class="graph" id="site">
+            INSERT GRAPH 2 - Overall progress to target (Pie chart?)
+          </div>
+        </header>
+      </div>
+
+      <div class="spacing"></div>
+
+      <div class="section">
+        <header>
+          <h3 class="thanks">Your hours</h3>
+          <div class="graph" id="personal">
+            INSERT GRAPH 3 - Your hours (Pie chart?)
+          </div>
+        </header>
+      </div>
+    </section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
