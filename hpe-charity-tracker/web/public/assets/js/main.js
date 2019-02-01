@@ -5,86 +5,80 @@
 */
 
 (function($) {
+  // Breakpoints.
+  skel.breakpoints({
+    xlarge: "(max-width: 1680px)",
+    large: "(max-width: 1280px)",
+    medium: "(max-width: 980px)",
+    small: "(max-width: 736px)",
+    xsmall: "(max-width: 480px)"
+  });
 
-	// Breakpoints.
-		skel.breakpoints({
-			xlarge:	'(max-width: 1680px)',
-			large:	'(max-width: 1280px)',
-			medium:	'(max-width: 980px)',
-			small:	'(max-width: 736px)',
-			xsmall:	'(max-width: 480px)'
-		});
+  $(function() {
+    var $window = $(window),
+      $body = $("body");
 
-	$(function() {
+    // Disable animations/transitions until the page has loaded.
+    $body.addClass("is-loading");
 
-		var	$window = $(window),
-			$body = $('body');
+    $window.on("load", function() {
+      window.setTimeout(function() {
+        $body.removeClass("is-loading");
+      }, 100);
+    });
 
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
+    // Prioritize "important" elements on medium.
+    skel.on("+medium -medium", function() {
+      $.prioritize(
+        ".important\\28 medium\\29",
+        skel.breakpoint("medium").active
+      );
+    });
 
-			$window.on('load', function() {
-				window.setTimeout(function() {
-					$body.removeClass('is-loading');
-				}, 100);
-			});
+    // Off-Canvas Navigation.
 
-		// Prioritize "important" elements on medium.
-			skel.on('+medium -medium', function() {
-				$.prioritize(
-					'.important\\28 medium\\29',
-					skel.breakpoint('medium').active
-				);
-			});
+    // Navigation Panel.
+    $(
+      '<div id="navPanel">' +
+        $("#nav").html() +
+        '<a href="#navPanel" class="close"></a>' +
+        "</div>"
+    )
+      .appendTo($body)
+      .panel({
+        delay: 500,
+        hideOnClick: true,
+        hideOnSwipe: true,
+        resetScroll: true,
+        resetForms: true,
+        side: "left"
+      });
 
-	// Off-Canvas Navigation.
-
-		// Navigation Panel.
-			$(
-				'<div id="navPanel">' +
-					$('#nav').html() +
-					'<a href="#navPanel" class="close"></a>' +
-				'</div>'
-			)
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'left'
-				});
-
-		// Fix: Remove transitions on WP<10 (poor/buggy performance).
-			if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
-				$('#navPanel')
-					.css('transition', 'none');
-
-	});
-
+    // Fix: Remove transitions on WP<10 (poor/buggy performance).
+    if (skel.vars.os == "wp" && skel.vars.osVersion < 10)
+      $("#navPanel").css("transition", "none");
+  });
 })(jQuery);
 
-
 function scrollToItem(item) {
-    var diff=(item.offsetTop-window.scrollY)/8
-    if (Math.abs(diff)>1) {
-        window.scrollTo(0, (window.scrollY+diff))
-        clearTimeout(window._TO)
-        window._TO=setTimeout(scrollToItem, 30, item)
-    } else {
-        window.scrollTo(0, item.offsetTop)
-    }
+  var diff = (item.offsetTop - window.scrollY) / 8;
+  if (Math.abs(diff) > 1) {
+    window.scrollTo(0, window.scrollY + diff);
+    clearTimeout(window._TO);
+    window._TO = setTimeout(scrollToItem, 30, item);
+  } else {
+    window.scrollTo(0, item.offsetTop);
+  }
 }
 
-function getVolData(myFile){
-	var file = myFile.files[0];  
-	var filename = file.name;
-	document.getElementById("volfile").innerHTML = "    "+filename;
- }
+function getVolData(myFile) {
+  var file = myFile.files[0];
+  var filename = file.name;
+  document.getElementById("volfile").innerHTML = "    " + filename;
+}
 
- function getDonData(myFile){
-	var file = myFile.files[0];  
-	var filename = file.name;
-	document.getElementById("donfile").innerHTML = "    "+filename;
- }
+function getDonData(myFile) {
+  var file = myFile.files[0];
+  var filename = file.name;
+  document.getElementById("donfile").innerHTML = "    " + filename;
+}
