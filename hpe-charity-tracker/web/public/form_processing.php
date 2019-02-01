@@ -8,6 +8,15 @@
         
 	</head>
     <body>
+
+    <header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo"><strong>HPE</strong> Charity Tracker</a>
+					<nav id="nav">
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+            </header>
+            
         <section id="banner">
 				<div class="inner">
 					<h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
@@ -20,25 +29,31 @@
 		</section>
         <?php 
             if(isset($_POST["submit"])) {
+                
                 // Establish database connection
                 $servername = "16.24.174.238:8989";
                 $username = "root";
                 $password = "root";
                 $dbname = "Charity";
+                
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
+                
                 // Check connection
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 } 
+
                 // Handle users:
                 $emailgiven = $_POST["email"];
                 $sql = "SELECT ID FROM User WHERE email='$emailgiven'";
                 $result = $conn->query($sql);
-
+                
+                // Fetch ID
                 $id = $result->fetch_assoc();
                 $id = $id["ID"];
 
+                
                 if ($result->num_rows == 0) {
                     $firstname = $_POST["first_name"];
                     $lastname = $_POST["last_name"];
@@ -49,12 +64,12 @@
                         echo "Error: " . $sql . "<br>" . $conn->error;
                     }
                 } 
-            }
+            
 
 
 
 
-            // TODO: Check if type is csv
+                // TODO: Check if type is csv
                 $csvFile = $_FILES["don_file"];
                 $file = file($csvFile["tmp_name"]);
                 $filename = $csvFile['name'];
@@ -156,7 +171,7 @@
                     echo "<script>alert('Invalid file type: $fileExt');</script>";
                 }
                 echo "<script>alert('$counter new volunteer entries & $d_counter new donation entries')</script>";
-
+            }
             // echo "<h4>PHP email test</h4>";
             // $to = "lewis-scott.smith@hpe.com";
             // $subject = "Intern Charity site test email";
@@ -166,8 +181,8 @@
 
             // mail($to,$subject,$txt,$headers);
         ?>
-        <script src="assets/js/jquery.min.js"></script>
-        <script>
+        <!-- <script src="assets/js/jquery.min.js"></script> -->
+        <!-- <script>
 			// $(document).ready(function () {
 			// 	// Handler for .ready() called.
 			// 	window.setTimeout(function () {
@@ -180,11 +195,19 @@
         //     if ( is_array( $output ) )
         //         $output = implode( ',', $output);
 
+<<<<<<< Updated upstream
         //     echo "<script>console.log( 'Debug Objects: " . $output . "' );< script>";
+=======
+        //     echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
+>>>>>>> Stashed changes
 
         //     // Used like this:
         //     debug_to_console( "Test" );
         // }
+<<<<<<< Updated upstream
 		</script>
+=======
+		</script> -->
+>>>>>>> Stashed changes
     </body>
 </html>
