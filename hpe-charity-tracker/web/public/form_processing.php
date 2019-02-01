@@ -1,36 +1,22 @@
 <html>
-    <head>
+<head>
 		<title>Thank You!</title>
 		<meta charset="utf-8" />
-<<<<<<< Updated upstream
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="shortcut icon" href="/images/favicon-310.png" />        
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/local.css" />
         
-=======
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
->>>>>>> Stashed changes
 	</head>
     <body>
-
-    <header id="header">
-				<div class="inner">
-					<a href="index.html" class="logo"><strong>HPE</strong> Charity Tracker</a>
-					<nav id="nav">
-					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-				</div>
-            </header>
-            
         <section id="banner">
 				<div class="inner">
 					<h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
-					<h3 class="thanks">Taking part in volunteering is a great thing to do.</h3>
-					<br />
-					<h5 class="thanks">You will now see how many hours we've done.</h3>
-					<h5 class="thanks">If you are not redirected, please click <a href="graph.html">here</a>.</h5>
-				</div>	
+                    <h3 class="thanks">Taking part in volunteering is a great thing to do.</h3>
+                    <h4 class="thanks" id="smaller">If you are not redirected in 5 seconds, please click the button below.</h3>
+                    <footer>
+						<a id="log-hours" class="button" href="graph.html" >See Progress</a>
+					</footer>
+                </div>	
 		</section>
         <?php 
             if(isset($_POST["submit"])) {
@@ -58,7 +44,6 @@
                 $id = $result->fetch_assoc();
                 $id = $id["ID"];
 
-                
                 if ($result->num_rows == 0) {
                     $firstname = $_POST["first_name"];
                     $lastname = $_POST["last_name"];
@@ -69,9 +54,6 @@
                         echo "Error: " . $sql . "<br>" . $conn->error;
                     }
                 } 
-            
-
-
 
 
                 // TODO: Check if type is csv
@@ -89,10 +71,6 @@
                         if($x==0){
                             $headers = $data;
                         }else {
-                            // echo "<p>Cause Name: ".$data[array_search('Cause Name', $headers)]."</p>";
-                            // echo "<p>Donation Date: ".$data[array_search('Donation Date', $headers)]."</p>";
-                            // echo "<p>Donation Amount: ".$data[array_search('Donation Amount', $headers)]."</p>";
-                            // echo "<p>Transaction ID: ".$data[array_search('Transaction Id', $headers)]."</p>";
 
                             $cause_name = $data[array_search('Cause Name', $headers)];
                             $donation_date = $data[array_search('Donation Date', $headers)];
@@ -141,25 +119,7 @@
                             $reward = trim($reward, '£');
                             $reward = trim($reward, ' Donation Currency');
 
-                            // echo "<p>Name: $name</p>";
-                            // echo "<p>Event Date: $event_date</p>";
-                            // echo "<p>Approved Date: $approved_date</p>";
-                            // echo "<p>Hours: $hours</p>";
-                            // echo "<p>Reward: $reward</p>";
-
-                            // $e_duplicate = mysqli_query($conn, "SELECT * from Volunteer where e_date='$event_date'");
-                            // $a_duplicate = mysqli_query($conn, "SELECT * from Volunteer where a_date='$approved_date'");
-                            // $n_duplicate = mysqli_query($conn, "SELECT * from Volunteer where name='$name'");
-                            // $h_duplicate = mysqli_query($conn, "SELECT * from Volunteer where hours='$hours'");
-
-                            // $e_rows = mysqli_num_rows($e_duplicate);
-                            // $a_rows = mysqli_num_rows($a_duplicate);
-                            // $n_rows = mysqli_num_rows($n_duplicate);
-                            // $h_rows = mysqli_num_rows($h_duplicate);
-                            // // if ($e_rows == 0 && $a_rows == 0 && $n_rows == 0 && $h_rows == 0){
-
                             $uniqID = $name . $event_date . $approved_date . $hours;
-
                             $hashed = password_hash('$uniqID', PASSWORD_BCRYPT );
 
                             $duplicate = mysqli_query($conn, "SELECT * from Volunteer where identifier='$uniqID'");
@@ -168,7 +128,7 @@
                             
                             $check = password_verify('$uniqID', '$storedhash'); 
 
-                            if ($check === FALSE ) {
+                            if ($check == FALSE ) {
 
                                 $sql = "INSERT into Volunteer (name, e_date, a_date, hours, reward, user_id, identifier)
                                 VALUES ('$name', '$event_date', '$approved_date', '$hours', '$reward', '$id', '$hashed')";
