@@ -9,6 +9,7 @@
 		<title>HPE Charity Tracker</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="/images/favicon-310.png" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/local.css" />
 	</head>
@@ -40,7 +41,7 @@
 							<p>Go and volunteer</p>
 						</div>
 
-						<div id="hpe-gives" onclick="document.location='hpe.benevity.org/user/login'">
+						<div id="hpe-gives">
 							<span class="icon fa-calendar"></span>
 							<h3>Log</h3>
 							<p>Log your hours on HPE Gives</p>
@@ -70,8 +71,8 @@
 					</header>
 
 					<form id="user-form" action="form_processing.php" method="post" enctype="multipart/form-data" onsubmit="return validate_form()">
-							<div class="12u$">
-								<div class="6u 12u$(xsmall)">
+							<div class="logging-form">
+								<div class="">
 									<h4>First Name:</h4>
 									<input type="text" name="first_name" class="form-input" id="first_name" value="" placeholder="First Name" />
 									<br />
