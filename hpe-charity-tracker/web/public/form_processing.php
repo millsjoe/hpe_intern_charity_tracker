@@ -7,11 +7,13 @@
 	</head>
     <body>
         <section id="banner">
-            <h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
-			<h3 class="thanks">Taking part in volunteering is a great thing to do.</h3>
-            <br />
-			<h5 class="thanks">You will now see how many hours we've done.</h3>
-            <h5 class="thanks">If you are not redirected, please click <a href="graph.html">here</a>.</h5>
+				<div class="inner">
+					<h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
+					<h3 class="thanks">Taking part in volunteering is a great thing to do.</h3>
+					<br />
+					<h5 class="thanks">You will now see how many hours we've done.</h3>
+					<h5 class="thanks">If you are not redirected, please click <a href="graph.html">here</a>.</h5>
+				</div>	
 		</section>
         <?php 
             if(isset($_POST["submit"])) {
