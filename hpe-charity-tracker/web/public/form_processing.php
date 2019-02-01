@@ -124,9 +124,16 @@
                             // echo "<p>Hours: $hours</p>";
                             // echo "<p>Reward: $reward</p>";
 
-                            $duplicate = mysqli_query($conn, "SELECT * from Volunteer where e_date='$event_date' AND a_date='$approved_date' AND name='$name' AND hours='$hours'");
+                            $e_duplicate = mysqli_query($conn, "SELECT * from Volunteer where e_date='$event_date'");
+                            $a_duplicate = mysqli_query($conn, "SELECT * from Volunteer where a_date='$approved_date'");
+                            $n_duplicate = mysqli_query($conn, "SELECT * from Volunteer where name='$name'");
+                            $h_duplicate = mysqli_query($conn, "SELECT * from Volunteer where hours='$hours'");
 
-                            if (mysqli_num_rows($duplicate) == 0){
+                            $e_rows = mysqli_num_rows($e_duplicate);
+                            $a_rows = mysqli_num_rows($a_duplicate);
+                            $n_rows = mysqli_num_rows($n_duplicate);
+                            $h_rows = mysqli_num_rows($h_duplicate);
+                            if ($e_rows == 0 && $a_rows == 0 && $n_rows == 0 && $h_rows == 0){
 
                                 $sql = "INSERT into Volunteer (name, e_date, a_date, hours, reward, user_id)
                                 VALUES ('$name', '$event_date', '$approved_date', '$hours', '$reward', '$id')";

@@ -68,7 +68,7 @@
 							<p>Please upload your volunteer and donation .csv file here</p>
 					</header>
 
-					<form id="user-form" action="form_processing.php" method="post" enctype="multipart/form-data">
+					<form id="user-form" action="form_processing.php" method="post" enctype="multipart/form-data" onsubmit="return validate_form()">
 							<div class="12u$">
 								<div class="6u 12u$(xsmall)">
 									<h4>First Name:</h4>
@@ -95,5 +95,31 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+<<<<<<< Updated upstream
+=======
+			<Script>
+				function validate_form(){
+					// Check first name
+					// var good_to_submit = true;
+					// if(!check_text_field('first_name')){good_to_submit = false;}
+					// if(!check_text_field('last_name')){good_to_submit = false;}
+					// if(!check_text_field('email')){good_to_submit = false;}
+
+					// return good_to_submit;
+
+					var good_to_submit = check_text_field('first_name') && check_text_field('last_name') && check_text_field('email');
+					return good_to_submit
+				}
+
+				function check_text_field(input_id){
+					var input = document.getElementById(input_id);
+					if(input.value == ""){
+						input.style = "background: #e6a4a4";
+						return false;
+					}
+					return true;
+				}
+			</Script>
+>>>>>>> Stashed changes
 	</body>
 </html>
