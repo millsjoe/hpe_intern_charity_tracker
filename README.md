@@ -69,11 +69,9 @@ To install [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git), 
 git clone https://github.com/millsjoe/hpe_intern_charity_tracker.git
 ```
 
-Go to the project directory :
+TODO:
 
-```sh
-cd docker-nginx-php-mysql
-```
+ADD
 
 
 ## Authors
