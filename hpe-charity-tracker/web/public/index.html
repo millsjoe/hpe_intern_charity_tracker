@@ -70,7 +70,7 @@
 							<p>Please upload your volunteer and donation .csv file here</p>
 					</header>
 
-					<form id="user-form" action="form_processing.php" method="post" enctype="multipart/form-data" onsubmit="return validate_form()">
+					<form id="user-form" action="form_processing.php" method="post" enctype="multipart/form-data" onsubmit="return createUserSession()">
 							<div class="logging-form">
 								<div class="">
 									<h4>First Name:</h4>
@@ -97,39 +97,5 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<Script>
-				function validate_form(){
-					// Check text fields
-					var good_to_submit = true;
-					good_to_submit = check_text_field('first_name', good_to_submit);
-					good_to_submit = check_text_field('last_name', good_to_submit);
-					good_to_submit = check_text_field('email', good_to_submit);
-
-					// Check file uploads
-					good_to_submit = check_file_field('vol_file', good_to_submit);
-					good_to_submit = check_file_field('don_file', good_to_submit);
-					
-					return good_to_submit
-				}
-
-				function check_text_field(input_id, good_to_submit){
-					var input = document.getElementById(input_id);
-					if(input.value == ""){
-						input.style = "background: #e6a4a4";
-						return false;
-					}
-					input.style = "background: #6cc091";
-					return true && good_to_submit;
-				}
-				function check_file_field(input_id, good_to_submit){
-					var file_input = document.getElementById(input_id)
-					if(file_input.files.length == 0){
-						document.getElementById(input_id.replace("_","")).style = "color: #e6a4a4";
-						return false;
-					}
-					document.getElementById(input_id.replace("_","")).style = "color: inherit";
-					return true && good_to_submit;
-				}
-			</Script>
 	</body>
 </html>
