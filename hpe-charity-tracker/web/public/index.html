@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Projection by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 	<head>
 		<title>HPE Charity Tracker</title>
@@ -13,89 +8,84 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/local.css" />
 	</head>
+	
 	<body>
-
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="index.html" class="logo"><strong>HPE</strong> Charity Tracker</a>
-					<nav id="nav">
-						<!-- <a href="index.html">Login</a> -->
-						<a href="graph.html">Progress</a>
-
+		<header id="header">
+			<div class="inner">
+				<a href="index.html" class="logo"><strong>HPE</strong> Charity Tracker</a>
+				<nav id="nav">
+					<a href="graph.html">Progress</a>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-				</div>
-			</header>
+				</nav>
+			</div>
+		</header>
 
-		<!-- Banner -->
-			<section id="banner">
-				<div class="inner">
-					<header>
-						<h1>Welcome to HPE Intern Charity Tracker</h1>
-					</header>
+		<section id="banner">
+			<div class="inner">
+				<header>
+					<h1>Welcome to HPE Intern Charity Tracker</h1>
+				</header>
 
-					<div class="flex ">
-						<div>
-							<span class="icon fa-user"></span>
-							<h3>Volunteer</h3>
-							<p>Go and volunteer</p>
-						</div>
-
-						<div id="hpe-gives">
-							<span class="icon fa-calendar"></span>
-							<h3>Log</h3>
-							<p>Log your hours on HPE Gives</p>
-						</div>
-
-						<div>
-							<span class="icon fa-bar-chart"></span>
-							<h3>Track</h3>
-							<p>Track your progress here</p>
-						</div>
-
+				<div class="flex ">
+					<div>
+						<span class="icon fa-user"></span>
+						<h3>Volunteer</h3>
+						<p>Go and volunteer</p>
 					</div>
 
-					<footer>
-						<a id="log-hours" class="button" onclick="scrollToItem(document.getElementById('three'))">Log your hours</a>
-					</footer>
+					<div id="hpe-gives">
+						<span class="icon fa-calendar"></span>
+						<h3>Log</h3>
+						<p>Log your hours on HPE Gives</p>
+					</div>
+
+					<div>
+						<span class="icon fa-bar-chart"></span>
+						<h3>Track</h3>
+						<p>Track your progress here</p>
+					</div>
+
 				</div>
-			</section>
 
+				<footer>
+					<a id="log-hours" class="button" onclick="scrollToItem(document.getElementById('three'))">Log your hours</a>
+				</footer>
+			</div>
+		</section>
+		
+		<section id="three" class="wrapper align-center">
+			<div class="center-screen">
+				<header class="align-center">
+						<h2>Volunteering and Donation History</h2>
+						<p>Please upload your volunteer and donation .csv file here</p>
+				</header>
 
-		<!-- Log Form -->
-			<section id="three" class="wrapper align-center">
-				<div class="center-screen">
-					<header class="align-center">
-							<h2>Volunteering and Donation History</h2>
-							<p>Please upload your volunteer and donation .csv file here</p>
-					</header>
-
-					<form id="user-form" action="form_processing.php" method="post" enctype="multipart/form-data" onsubmit="return createUserSession()">
-							<div class="logging-form">
-								<div class="">
-									<h4>First Name:</h4>
-									<input type="text" name="first_name" class="form-input" id="first_name" value="" placeholder="First Name" required/>
-									<br />
-									<h4>Last Name:</h4>									
-									<input type="text" name="last_name" class="form-input" id="last_name" value="" placeholder="Last Name" required/>
-									<br />
-									<h4>Email:</h4>									
-									<input type="text" name="email" class="form-input" id="email" value="" placeholder="Email" required/>
-									<br />
-									<br />
-									<p><label class="custom-file-upload"><input type="file" name="vol_file" id="vol_file" onchange="getVolData(this);"/><span id="volfile">Volunteering History</span></label></p>
-									<p><label class="custom-file-upload"><input type="file" name="don_file" id="don_file" onchange="getDonData(this);"/><span id="donfile">Donation History</span></label></p>
-									<input type="submit" name="submit">
-								</div>
-							</div>
-					</form>
+				<form id="user-form" action="form_processing.php" method="post" enctype="multipart/form-data" onsubmit="return createUserSession()">
+					<div class="logging-form">
+						<div class="">
+							<h4>First Name:</h4>
+							<input type="text" name="first_name" class="form-input" id="first_name" value="" placeholder="First Name" required/>
+							<br />
+							<h4>Last Name:</h4>									
+							<input type="text" name="last_name" class="form-input" id="last_name" value="" placeholder="Last Name" required/>
+							<br />
+							<h4>Email:</h4>									
+							<input type="text" name="email" class="form-input" id="email" value="" placeholder="Email" required/>
+							<br />
+							<br />
+							<p><label class="custom-file-upload"><input type="file" name="vol_file" id="vol_file" onchange="getVolData(this);"/><span id="volfile">Volunteering History</span></label></p>
+							<p><label class="custom-file-upload"><input type="file" name="don_file" id="don_file" onchange="getDonData(this);"/><span id="donfile">Donation History</span></label></p>
+							<input type="submit" name="submit">
+						</div>
+					</div>
+				</form>
+		
+			</div>
+		</section>
 			
-				</div>
-			</section>
-			
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 	</body>
 </html>

@@ -1,25 +1,26 @@
 <html>
 <head>
-		<title>Thank You!</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <link rel="stylesheet" href="assets/css/local.css" />
-        <script src="assets/js/main.js"></script>
+    <title>Thank You!</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/local.css" />
+    <script src="assets/js/main.js"></script>
         
 	</head>
     <body>
         <section id="banner">
-				<div class="inner">
-                    <h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
-                    <br />
-                    <h3 class="thanks" id="taking-part">Taking part in volunteering is a great thing to do.</h3>
-                    <h4 class="thanks" id="smaller">If you are not redirected in 5 seconds, please click the button below.</h3>
-                    <footer>
-						<a id="log-hours" class="button" href="graph.html" >See Progress</a>
-					</footer>
-                </div>	
-		</section>
+            <div class="inner">
+                <h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
+                <br />
+                <h3 class="thanks" id="taking-part">Taking part in volunteering is a great thing to do.</h3>
+                <h4 class="thanks" id="smaller">If you are not redirected in 5 seconds, please click the button below.</h3>
+                <footer>
+                    <a id="log-hours" class="button" href="graph.html" >See Progress</a>
+                </footer>
+            </div>	
+        </section>
+        
         <?php 
             if(isset($_POST["submit"])) {
                 
@@ -171,6 +172,7 @@
 
             // mail($to,$subject,$txt,$headers);
         ?>
+        <!-- Uncomment for 5 second refresh -->
         <!-- <script>
 			    $(document).ready(function () {
                     // Handler for .ready() called.

@@ -1,9 +1,3 @@
-/*
-	Projection by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-*/
-
 (function($) {
   // Breakpoints.
   skel.breakpoints({
@@ -180,6 +174,7 @@ function getCookie(cname) {
   return "";
 }
 
+// Used to update thank you page with hours logged.
 function changetext(vol, don) {
   document.getElementById("taking-part").innerHTML =
     vol + " volunteering and " + don + " donations logged!";
