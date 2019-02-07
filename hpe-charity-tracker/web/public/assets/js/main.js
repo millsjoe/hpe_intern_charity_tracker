@@ -76,7 +76,7 @@ function scrollToItem(item) {
 function getVolData(myFile) {
   var file = myFile.files[0];
   var filename = file.name;
-  document.getElementById("volname").innerHTML = "    " + filename;
+  document.getElementById("volfile").innerHTML = "    " + filename;
 }
 
 // Getting data from donation history upload
@@ -178,4 +178,9 @@ function getCookie(cname) {
     }
   }
   return "";
+}
+
+function changetext(vol, don) {
+  document.getElementById("taking-part").innerHTML =
+    vol + " volunteering and " + don + " donations logged!";
 }

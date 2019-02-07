@@ -4,7 +4,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/local.css" />
+        <link rel="stylesheet" href="assets/css/local.css" />
+        <script src="assets/js/main.js"></script>
         
 	</head>
     <body>
@@ -56,10 +57,6 @@
                     }
                 } 
 
-                
-                
-
-
                 // TODO: Check if type is csv
                 $csvFile = $_FILES["don_file"];
                 $file = file($csvFile["tmp_name"]);
@@ -67,13 +64,11 @@
                 $fileExt = pathinfo($filename, PATHINFO_EXTENSION);
                 // $fileType = $csvFile["type"];
 
-
                 $sql = "SELECT ID FROM User WHERE email='$emailgiven'";
                 $result = $conn->query($sql);
         
                 $id = $result->fetch_assoc();
                 $id = $id["ID"];
-
 
                 $d_counter = 0;
                 if($fileExt == "csv"){
@@ -108,7 +103,7 @@
                         $x++;
                     }
                 } else {
-                    echo "<script>alert('Invalid file type: $fileExt');</script>";
+                    echo "<script>console.log('Invalid file type: $fileExt');</script>";
                 }
                 $csvFile = $_FILES["vol_file"];
                 $file = file($csvFile["tmp_name"]);
@@ -163,9 +158,9 @@
                         $x++;
                     }
                 } else {
-                    echo "<script>alert('Invalid file type: $fileExt');</script>";
+                    echo "<script>console.log('Invalid file type: $fileExt');</script>";
                 }
-                echo "<script>alert('$counter new volunteer entries & $d_counter new donation entries')</script>";
+                echo "<script>changetext($counter, $d_counter);</script>";
             }
             // echo "<h4>PHP email test</h4>";
             // $to = "lewis-scott.smith@hpe.com";
@@ -176,25 +171,13 @@
 
             // mail($to,$subject,$txt,$headers);
         ?>
-        <!-- <script src="assets/js/jquery.min.js"></script> -->
         <!-- <script>
-			// $(document).ready(function () {
-			// 	// Handler for .ready() called.
-			// 	window.setTimeout(function () {
-			// 		location.href = "graph.html";
-			// 	}, 5000);
-            // });
-            
-        //     function debug_to_console( $data ) {
-        //     $output = $data;
-        //     if ( is_array( $output ) )
-        //         $output = implode( ',', $output);
-
-        //     echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
-
-        //     // Used like this:
-        //     debug_to_console( "Test" );
-        // }
+			    $(document).ready(function () {
+                    // Handler for .ready() called.
+                    window.setTimeout(function () {
+                        location.href = "graph.html";
+                    }, 5000);
+                });
 		</script> -->
     </body>
 </html>
