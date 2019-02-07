@@ -73,10 +73,10 @@ function scrollToItem(item) {
 }
 
 // Getting data from file upload
-function getFileName(myFile, fileName) {
+function getVolData(myFile) {
   var file = myFile.files[0];
   var filename = file.name;
-  document.getElementById(fileName).innerHTML = "    " + filename;
+  document.getElementById("volname").innerHTML = "    " + filename;
 }
 
 // Getting data from donation history upload
@@ -86,36 +86,36 @@ function getDonData(myFile) {
   document.getElementById("donfile").innerHTML = "    " + filename;
 }
 
-function validate_form(){
+function validate_form() {
   // Check text fields
   var good_to_submit = true;
-  good_to_submit = check_text_field('first_name', good_to_submit);
-  good_to_submit = check_text_field('last_name', good_to_submit);
-  good_to_submit = check_text_field('email', good_to_submit);
+  good_to_submit = check_text_field("first_name", good_to_submit);
+  good_to_submit = check_text_field("last_name", good_to_submit);
+  good_to_submit = check_text_field("email", good_to_submit);
 
   // Check file uploads
-  good_to_submit = check_file_field('vol_file', good_to_submit);
-  good_to_submit = check_file_field('don_file', good_to_submit);
-  
-  return good_to_submit
+  good_to_submit = check_file_field("vol_file", good_to_submit);
+  good_to_submit = check_file_field("don_file", good_to_submit);
+
+  return good_to_submit;
 }
 
-function check_text_field(input_id, good_to_submit){
+function check_text_field(input_id, good_to_submit) {
   var input = document.getElementById(input_id);
-  if(input.value == ""){
+  if (input.value == "") {
     input.style = "background: #e6a4a4";
     return false;
   }
   input.style = "background: #6cc091";
   return true && good_to_submit;
 }
-function check_file_field(input_id, good_to_submit){
-  var file_input = document.getElementById(input_id)
-  if(file_input.files.length == 0){
-    document.getElementById(input_id.replace("_","")).style = "color: #e6a4a4";
+function check_file_field(input_id, good_to_submit) {
+  var file_input = document.getElementById(input_id);
+  if (file_input.files.length == 0) {
+    document.getElementById(input_id.replace("_", "")).style = "color: #e6a4a4";
     return false;
   }
-  document.getElementById(input_id.replace("_","")).style = "color: inherit";
+  document.getElementById(input_id.replace("_", "")).style = "color: inherit";
   return true && good_to_submit;
 }
 
@@ -135,11 +135,10 @@ function createUserSession() {
     // Using cookies to store the data for 5 weeks
     var d = new Date();
     // 35 days + the current time
-    d.setTime(d.getTime() + (35*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
+    d.setTime(d.getTime() + 35 * 24 * 60 * 60 * 1000);
+    var expires = "expires=" + d.toUTCString();
     document.cookie = "email=" + sessionEmail + ";" + expires + ";path=/";
     document.cookie = "name=" + sessionName + ";" + expires + ";path=/";
-
   }
 }
 
@@ -168,10 +167,10 @@ function getUserSession() {
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
+  var ca = decodedCookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
-    while (c.charAt(0) == ' ') {
+    while (c.charAt(0) == " ") {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {

@@ -10,8 +10,9 @@
     <body>
         <section id="banner">
 				<div class="inner">
-					<h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
-                    <h3 class="thanks">Taking part in volunteering is a great thing to do.</h3>
+                    <h1 class="thanks">Thank You <?php echo $_POST["first_name"];?>!</h1>
+                    <br />
+                    <h3 class="thanks" id="taking-part">Taking part in volunteering is a great thing to do.</h3>
                     <h4 class="thanks" id="smaller">If you are not redirected in 5 seconds, please click the button below.</h3>
                     <footer>
 						<a id="log-hours" class="button" href="graph.html" >See Progress</a>
@@ -73,7 +74,7 @@
                 $id = $result->fetch_assoc();
                 $id = $id["ID"];
 
-                
+
                 $d_counter = 0;
                 if($fileExt == "csv"){
                     $x = 0;
@@ -124,6 +125,7 @@
                         }else {
                             
                             $name = $data[array_search('Activity', $headers)];
+                            $name = trim($name, '\'');
                             $event_date = str_replace('/','-',$data[array_search('Event Date', $headers)]);
                             $approved_date = str_replace('/','-',$data[array_search('Approved Date', $headers)]);
                             $hours = $data[array_search('Hours', $headers)];

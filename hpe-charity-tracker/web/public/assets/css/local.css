@@ -43,6 +43,10 @@ input[type="file"] {
   z-index: 1;
 }
 
+#taking-part {
+  margin-top: -20px;
+}
+
 .thanks h4,
 h1,
 h3 {
