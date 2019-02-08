@@ -2,11 +2,11 @@ var ctx = document.getElementById("yourHours").getContext("2d");
 var myChart = new Chart(ctx, {
   type: "bar",
   data: {
-    labels: ["Greg", "Joe", "Jordan", "Lewis"],
+    labels: [getUserSession().name],
     datasets: [
       {
         label: "Hours Volunteered",
-        data: [31, 40, 28, 40],
+        data: [63],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -32,7 +32,7 @@ var myChart = new Chart(ctx, {
           ticks: {
             fontColor: "white",
             fontSize: 18,
-            stepSize: 1,
+            stepSize: 5,
             beginAtZero: true
           }
         }

@@ -18,20 +18,14 @@ var myChart = new Chart(ctx, {
       yAxes: [
         {
           ticks: {
-            fontColor: "white",
-            fontSize: 18,
-            stepSize: 1,
-            beginAtZero: true
+            display: false
           }
         }
       ],
       xAxes: [
         {
           ticks: {
-            fontColor: "white",
-            fontSize: 14,
-            stepSize: 1,
-            beginAtZero: true
+            display: false
           }
         }
       ]
