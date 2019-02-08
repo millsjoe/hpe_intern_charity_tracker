@@ -32,7 +32,7 @@ var myChart = new Chart(ctx, {
           ticks: {
             fontColor: "white",
             fontSize: 18,
-            stepSize: 1,
+            stepSize: 5,
             beginAtZero: true
           }
         }
