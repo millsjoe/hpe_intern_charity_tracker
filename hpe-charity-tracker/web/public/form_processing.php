@@ -1,11 +1,12 @@
 <html>
-<head>
-    <title>Thank You!</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/local.css" />
-    <script src="assets/js/main.js"></script>
+    <head>
+		<title>Thank You!</title>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="/images/favicon-310.png" />        
+        <link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/local.css" />
+        <script src="assets/js/main.js"></script>
         
 	</head>
     <body>
@@ -129,27 +130,18 @@
                             $reward = trim($reward, '£');
                             $reward = trim($reward, ' Donation Currency');
 
-                            $uniqID = $name . $event_date . $approved_date . $hours;
-                            $hashed = password_hash('$uniqID', PASSWORD_BCRYPT );
+                            $uniqID = $name . $event_date . $approved_date . $hours . $id;
 
                             $duplicate = mysqli_query($conn, "SELECT * from Volunteer where identifier='$uniqID'");
                             
                             if (mysqli_num_rows($duplicate) == 0){
-                                $check == FALSE;
-                            } else {
-                                
-                                $storedhash = $duplicate->fetch_assoc() or die($conn->error);
-                                $storedhash = $storedhash["identifier"];
-                                $check = password_verify('$uniqID', '$storedhash'); 
-                            }
-
-                            if ($check == FALSE ) {
-
+                             
                                 $sql = "INSERT into Volunteer (name, e_date, a_date, hours, reward, user_id, identifier)
-                                VALUES ('$name', '$event_date', '$approved_date', '$hours', '$reward', '$id', '$hashed')";
+                                VALUES ('$name', '$event_date', '$approved_date', '$hours', '$reward', '$id', '$uniqID')";
 
                                 if ($conn->query($sql) === FALSE) {
                                     echo "Error: " . $sql . "<br>" . $conn->error;
+                                    echo "<script>console.log('Error: $sql $conn->error Duplicate?');</script>";
                                 } else {
                                     $counter++;
                                 }
